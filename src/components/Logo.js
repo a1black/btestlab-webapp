@@ -1,0 +1,71 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import clsx from 'clsx'
+import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@material-ui/core/styles'
+import { Link as RouterLink } from 'react-router-dom'
+
+import logoDash from 'resources/logofilled.svg'
+import logoMain from 'resources/logoround.svg'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    alignItems: 'center',
+    color: (props) =>
+      props.logo === 'main'
+        ? 'white'
+        : theme.palette.getContrastText(theme.palette.background.default),
+    display: 'flex',
+    flex: '1 1 auto',
+    textDecoration: 'none'
+  },
+  icon: {
+    backgroundColor: 'transparent',
+    backgroundImage: (props) =>
+      `url(${props.logo === 'main' ? logoMain : logoDash})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    height: 46,
+    width: 46
+  },
+  text: {
+    fontWeight: 500,
+    marginLeft: 8
+  }
+}))
+
+/**
+ * Component displays company logo that linked to the homepage.
+ */
+const Logo = (props) => {
+  const { logo, className, ...other } = props
+  const classes = useStyles({ logo, ...other })
+
+  return (
+    <RouterLink to='/' className={clsx(classes.root, className)}>
+      <div className={classes.icon}></div>
+      <Typography
+        align='left'
+        className={classes.text}
+        display='block'
+        noWrap={true}
+        variant='h5'
+      >
+        {/* eslint-disable-next-line no-undef */}
+        {process.env.REACT_APP_NAME}
+      </Typography>
+    </RouterLink>
+  )
+}
+
+Logo.propTypes = {
+  /** Style objects for component's elements. */
+  classes: PropTypes.object,
+  /** CSS class for root element. */
+  className: PropTypes.string,
+  /** Variant of logo image: 'main' | 'dashboard'. */
+  logo: PropTypes.bool
+}
+
+export default Logo
