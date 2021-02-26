@@ -26,8 +26,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    height: 46,
-    width: 46
+    height: '2.875rem',
+    width: '2.875rem'
   },
   text: {
     fontWeight: 500,
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
  * Component displays company logo that linked to the homepage.
  */
 const Logo = (props) => {
-  const { logo, className, ...other } = props
+  const { logo = 'dashboard', className, ...other } = props
   const classes = useStyles({ logo, ...other })
 
   return (
@@ -65,7 +65,10 @@ Logo.propTypes = {
   /** CSS class for root element. */
   className: PropTypes.string,
   /** Variant of logo image: 'main' | 'dashboard'. */
-  logo: PropTypes.bool
+  logo: PropTypes.string.isRequired
+}
+Logo.defaultProps = {
+  logo: 'dashboard'
 }
 
 export default Logo
