@@ -1,21 +1,21 @@
 {
-    "name": "ВОИБ №2",
-    "short_name": "ВОИБ №2",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#d60000",
-    "background_color": "#d60000",
-    "start_url": "/",
-    "display": "standalone",
-    "orientation": "portrait"
+  "name": "ВОИБ №2 СПИД Лаборатория",
+  "short_name": "ВОИБ №2 СПИД Лаб",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#d60000",
+  "background_color": "#d60000",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
 }

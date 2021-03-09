@@ -13,10 +13,9 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     color: (props) =>
       props.logo === 'main'
-        ? 'white'
+        ? theme.palette.common.white
         : theme.palette.getContrastText(theme.palette.background.default),
     display: 'flex',
-    flex: '1 1 auto',
     textDecoration: 'none'
   },
   icon: {
@@ -31,7 +30,12 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     fontWeight: 500,
-    marginLeft: 8
+    marginLeft: 8,
+    lineHeight: 1.2,
+    '& h6': {
+      fontWeight: 500,
+      lineHeight: 1.2
+    }
   }
 }))
 
@@ -48,12 +52,11 @@ const Logo = (props) => {
       <Typography
         align='left'
         className={classes.text}
-        display='block'
         noWrap={true}
-        variant='h5'
+        variant='h6'
       >
-        {/* eslint-disable-next-line no-undef */}
-        {process.env.REACT_APP_NAME}
+        {'СПИД '}
+        <Typography variant='subtitle1'>Лаборатория</Typography>
       </Typography>
     </RouterLink>
   )

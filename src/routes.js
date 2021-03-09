@@ -1,6 +1,7 @@
 import React from 'react'
 import DashboardLayout from 'layouts/DashboardLayout'
 import MainLayout from 'layouts/MainLayout'
+import Login from 'views/auth/Login'
 import { Navigate } from 'react-router-dom'
 
 const routes = [
@@ -18,7 +19,7 @@ const routes = [
     path: '/',
     element: <MainLayout />,
     children: [
-      { path: 'login', element: <div>Login View</div> },
+      { path: 'sign-in', element: <Login /> },
       { path: '404', element: <div>404 Error View</div> },
       { path: '500', element: <div>500 Error View</div> },
       { path: '*', element: <Navigate to='404' /> }

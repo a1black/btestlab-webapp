@@ -15,7 +15,7 @@ const TopBar = (props) => {
   const classes = useStyles(props)
 
   return (
-    <AppBar>
+    <AppBar position='sticky'>
       <Toolbar className={classes.root}>
         <Logo
           logo='main'
