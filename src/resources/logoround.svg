@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="a" version="1.1" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<svg id="a" version="1.1" viewBox="0 0 350 350" xmlns="http://www.w3.org/2000/svg" xmlnsCc="http://creativecommons.org/ns#" xmlnsDc="http://purl.org/dc/elements/1.1/" xmlnsRdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
  <title>Волгоградская областная инфекционная больница № 2</title>
  <metadata>
-  <rdf:RDF>
-   <cc:Work rdf:about="">
-    <dc:format>image/svg+xml</dc:format>
-    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:title>Волгоградская областная инфекционная больница № 2</dc:title>
-    <dc:creator>
-     <cc:Agent>
-      <dc:title>Алексей Черняев</dc:title>
-     </cc:Agent>
-    </dc:creator>
-    <cc:license rdf:resource="http://artlibre.org/licence/lal"/>
-    <dc:language>ru</dc:language>
-   </cc:Work>
-   <cc:License rdf:about="http://artlibre.org/licence/lal">
-    <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
-    <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
-    <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
-    <cc:requires rdf:resource="http://creativecommons.org/ns#ShareAlike"/>
-    <cc:requires rdf:resource="http://creativecommons.org/ns#Notice"/>
-    <cc:requires rdf:resource="http://creativecommons.org/ns#Attribution"/>
-   </cc:License>
-  </rdf:RDF>
+  <rdfRDF>
+   <ccWork rdfAbout="">
+    <dcformat>image/svg+xml</dcformat>
+    <dctype rdfResource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dctitle>Волгоградская областная инфекционная больница № 2</dctitle>
+    <dccreator>
+     <ccAgent>
+      <dctitle>Алексей Черняев</dctitle>
+     </ccAgent>
+    </dccreator>
+    <cclicense rdfResource="http://artlibre.org/licence/lal"/>
+    <dclanguage>ru</dclanguage>
+   </ccWork>
+  </rdfRDF>
  </metadata>
  <g transform="translate(47.857 42.857)" stroke-width="0">
   <circle cx="127.14" cy="132.14" r="175" fill="#fff" opacity=".99975"/>

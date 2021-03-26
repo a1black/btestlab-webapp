@@ -1,17 +1,18 @@
 import React from 'react'
-import DashboardLayout from 'layouts/DashboardLayout'
-import MainLayout from 'layouts/MainLayout'
-import Login from 'views/auth/Login'
 import { Navigate } from 'react-router-dom'
+
+import DashboardLayout from 'layouts/DashboardLayout'
+import Login from 'views/auth/Login'
+import MainLayout from 'layouts/MainLayout'
 
 const routes = [
   {
     path: 'app',
     element: <DashboardLayout />,
     children: [
+      { path: 'patient-codes', element: <div>People codes View</div> },
+      { path: 'test-types', element: <div>Examination Types View</div> },
       { path: 'users', element: <div>Users View</div> },
-      { path: 'examtype', element: <div>Examination Types View</div> },
-      { path: 'identitycodes', element: <div>People codes View</div> },
       { path: '*', element: <Navigate to='/404' /> }
     ]
   },

@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
 import Typography from '@material-ui/core/Typography'
+import clsx from 'clsx'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+
 import { Link as RouterLink } from 'react-router-dom'
-import { makeStyles } from '@material-ui/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    backgroundColor: theme.palette.background.default
+  },
   link: {
     color: theme.palette.text.secondary
   }
@@ -15,9 +19,10 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Display copyright message with link to the homepage.
  */
-const Copyright = (props) => {
-  const { className, ...other } = props
-  const classes = useStyles(other)
+export default function Copyright({ className, ...rest }) {
+  const classes = useStyles(rest)
+  const isMobile = useMediaQuery(useTheme().breakpoints.down('sm'))
+
   return (
     <Typography
       align='center'
@@ -25,10 +30,13 @@ const Copyright = (props) => {
       color='textSecondary'
       variant='body2'
     >
-      {`Copyright ©  ${new Date().getFullYear()} `}
+      {`Copyright © ${new Date().getFullYear()} `}
       <RouterLink to='/' className={classes.link}>
-        {/* eslint-disable-next-line no-undef */}
-        {process.env.REACT_APP_COPYRIGHT}
+        {isMobile
+          ? /* eslint-disable-next-line no-undef */
+            process.env.REACT_APP_COPYRIGHT_SHORT
+          : /* eslint-disable-next-line no-undef */
+            process.env.REACT_APP_COPYRIGHT}
       </RouterLink>
     </Typography>
   )
@@ -40,5 +48,3 @@ Copyright.propTypes = {
   /** CSS class for root element. */
   className: PropTypes.string
 }
-
-export default Copyright

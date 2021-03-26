@@ -9,16 +9,19 @@ import { Helmet } from 'react-helmet'
  * @return {string} Complete page title.
  */
 function makePageTitle(title) {
-  // @todo Add internalization for provided title.
   // eslint-disable-next-line no-undef
-  return `${title} | ${process.env.REACT_APP_TITLE}`
+  const prefix = process.env.REACT_APP_TITLE
+    ? /* eslint-disable-next-line no-undef*/
+      ` | ${process.env.REACT_APP_TITLE}`
+    : ''
+  return `${title.trim()}${prefix}`
 }
 
 /**
  * Sets new title and description for displayed page.
  */
-const PageTitle = ({ title, desc }) => {
-  return !title ? null : (
+export default function PageTitle({ title, desc }) {
+  return (
     <Helmet>
       <title>{makePageTitle(title)}</title>
       {desc && <meta name='description' content={desc} />}
@@ -28,9 +31,7 @@ const PageTitle = ({ title, desc }) => {
 
 PageTitle.propTypes = {
   /** Page name. */
-  title: PropTypes.string,
+  title: PropTypes.string.isRequired,
   /** Page description. */
   desc: PropTypes.string
 }
-
-export default PageTitle

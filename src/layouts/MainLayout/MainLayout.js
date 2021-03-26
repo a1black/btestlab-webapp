@@ -1,18 +1,19 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import { Outlet } from 'react-router-dom'
 import Box from '@material-ui/core/Box'
 import Hidden from '@material-ui/core/Hidden'
 
-import TopBar from 'layouts/MainLayout/TopBar'
-import Copyright from 'components/Copyright'
+import { Outlet } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
 
-const useStyles = makeStyles({
+import Copyright from 'components/Copyright'
+import TopBar from 'layouts/MainLayout/TopBar'
+
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
     minHeight: '100vh',
-    paddingBottom: 32
+    paddingBottom: theme.spacing(4)
   },
   content: {
     alignItems: 'center',
@@ -23,10 +24,11 @@ const useStyles = makeStyles({
   footer: {
     flex: '0 1 auto'
   }
-})
+}))
 
-const MainLayout = (props) => {
+export default function MainLayout(props) {
   const classes = useStyles(props)
+
   return (
     <Box className={classes.root}>
       <TopBar />
@@ -41,5 +43,3 @@ const MainLayout = (props) => {
     </Box>
   )
 }
-
-export default MainLayout

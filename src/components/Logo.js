@@ -1,39 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import clsx from 'clsx'
+import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
-import { makeStyles } from '@material-ui/core/styles'
-import { Link as RouterLink } from 'react-router-dom'
+import clsx from 'clsx'
 
-import logoDash from 'resources/logofilled.svg'
-import logoMain from 'resources/logoround.svg'
+import { Link as RouterLink } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles'
+
+import { ReactComponent as LogoIcon } from 'resources/logomono.svg'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    alignItems: 'center',
-    color: (props) =>
-      props.logo === 'main'
-        ? theme.palette.common.white
-        : theme.palette.getContrastText(theme.palette.background.default),
-    display: 'flex',
-    textDecoration: 'none'
+    color: theme.palette.primary.contrastText,
+    paddingBottom: theme.spacing(0),
+    paddingTop: theme.spacing(0)
   },
   icon: {
-    backgroundColor: 'transparent',
-    backgroundImage: (props) =>
-      `url(${props.logo === 'main' ? logoMain : logoDash})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    height: '2.875rem',
-    width: '2.875rem'
+    fill: theme.palette.primary.contrastText,
+    height: '2.725rem',
+    marginRight: theme.spacing(1),
+    width: '2.725rem'
   },
-  text: {
-    fontWeight: 500,
-    marginLeft: 8,
+  label: {
+    fontWeight: theme.typography.fontWeightBold,
+    marginLeft: theme.spacing(1),
     lineHeight: 1.2,
     '& h6': {
-      fontWeight: 500,
+      fontWeight: theme.typography.fontWeightMedium,
       lineHeight: 1.2
     }
   }
@@ -42,36 +35,34 @@ const useStyles = makeStyles((theme) => ({
 /**
  * Component displays company logo that linked to the homepage.
  */
-const Logo = (props) => {
-  const { logo = 'dashboard', className, ...other } = props
-  const classes = useStyles({ logo, ...other })
+export default function Logo({ logo: Icon, className, ...rest }) {
+  const classes = useStyles(rest)
 
   return (
-    <RouterLink to='/' className={clsx(classes.root, className)}>
-      <div className={classes.icon}></div>
-      <Typography
-        align='left'
-        className={classes.text}
-        noWrap={true}
-        variant='h6'
-      >
+    <Button
+      classes={{ startIcon: classes.icon }}
+      className={clsx(classes.root, className)}
+      component={RouterLink}
+      startIcon={Icon || <LogoIcon />}
+      to='/'
+    >
+      <Typography align='left' className={classes.label} noWrap variant='h6'>
         {'СПИД '}
-        <Typography variant='subtitle1'>Лаборатория</Typography>
+        <Typography component='h6' variant='subtitle1'>
+          Лаборатория
+        </Typography>
       </Typography>
-    </RouterLink>
+    </Button>
   )
 }
 
 Logo.propTypes = {
-  /** Style objects for component's elements. */
-  classes: PropTypes.object,
   /** CSS class for root element. */
   className: PropTypes.string,
-  /** Variant of logo image: 'main' | 'dashboard'. */
-  logo: PropTypes.string.isRequired
-}
-Logo.defaultProps = {
-  logo: 'dashboard'
+  /** Logo image. */
+  logo: PropTypes.element.isRequired
 }
 
-export default Logo
+Logo.defaultProps = {
+  logo: <LogoIcon />
+}
